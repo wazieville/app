@@ -1,0 +1,424 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!-- CSS Imports -->
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+
+
+    <!-- Mapbox GL -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="/Chart.min.css">
+     <title>Drive Waze</title>
+  </head>
+
+  <body>
+
+    <!-- <div class="header">
+      <h2 > DriveWaze</h2>
+    </div> -->
+
+    <!-- Map -->
+    <div id="map" class="map"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar navbar-primary">
+
+          <a href="#" class="btn-expand-collapse">
+            <svg  width="20px" height="20px" viewBox="0 0 448 448" style="enable-background:new 0 0 448 448;">
+              <path class="path rotate" id="acol" d="M56,168c30.9,0,56,25.1,56,56s-25.1,56-56,56S0,254.9,0,224S25.1,168,56,168z M56,336c30.9,0,56,25.1,56,56s-25.1,56-56,56S0,422.9,0,392S25.1,336,56,336z M56,0c30.9,0,56,25.1,56,56s-25.1,56-56,56S0,86.9,0,56S25.1,0,56,0z"/>
+            </svg>
+          </a>
+
+
+<!-- Adding toggles  -->
+      <div class="container nav-label">
+        <p><h2>GridCon</h2></p>
+        <p style="font-size: 0.8em;">
+            Lorem ipsum dolor sit amet magna aliqua.
+        </p>
+
+        <div>
+          <section class="links" >
+            <div class="flexed" style="align:center;">
+              <div class="d-flex" style="margin-left:20px;">
+                <a class="link Filter" href="#" data-toggle="tooltip" title="Filter" id="icons" currentitem:"true"> Scenarios
+                  <!-- <svg viewBox="0 0 54 54" width="20px" height="20px" style="fill: currentcolor;" >
+                    <path class="toggles" d="M52.5,19.67l-16,20h0a6.24,6.24,0,0,0-1.37,3.9V57L30.6,54.74a3.12,3.12,0,0,1-1.73-2.79V43.58h0a6.24,6.24,0,0,0-1.37-3.9l-16-20a5,5,0,0,1-1.35-3.24c0-5.17,9.78-9.36,21.85-9.36s21.85,4.19,21.85,9.36A5,5,0,0,1,52.5,19.67Zm-20.5,3c8.62,0,15.61-2.79,15.61-6.24s-7-6.24-15.61-6.24S16.39,13,16.39,16.43,23.38,22.67,32,22.67Z">
+                   </path>
+                 </svg> -->
+                </a>
+              </div>
+
+             <div class="d-flex">
+               <a class="link Interact" href="#" data-toggle="tooltip" title="Interact" id="icons" currentitem="false" > Location
+                 <!-- <svg viewBox="0 0 54 54" width="20px" height="20px" style="fill: currentcolor;" class="data-ex-icons-cursorclick ">
+                   <g transform="scale(1.2, 1.2) translate(0, 2)">
+                     <polygon points="22.5,11.1 27.6,43.9 35.3,37.3 43,49 48.8,45 41,33.2 49,28.3 ">
+                     </polygon>
+                      <path class="toggles" d="M21.2,27.8C14.5,26.6,9.8,20.7,9.8,14c0-7.7,6.3-14,14-14s14,6.3,14,14c0,0.8-0.1,1.5-0.2,2.3l-2.5-0.4 c0.1-0.6,0.2-1.3,0.2-1.8c0-6.4-5.2-11.5-11.5-11.5S12.3,7.7,12.3,14c0,5.5,3.9,10.3,9.4,11.4L21.2,27.8z">
+                      </path>
+                    </g>
+                  </svg> -->
+               </a>
+            </div>
+          </div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="side-panel-divider"></div>
+
+<!-- Adding side-panel_content -->
+      <div class="side-panel-content">
+
+        <div class="filter-manager">
+          <div class="content-title">
+            Filters </div>
+
+            <div class="filter-panel" style="margin-top:10px;">
+               <div class="filter-header">
+                 <div style="flex-grow: 1;">
+                   <div>
+                     <div class="dropdown">
+                       <!-- <div style="position: relative;"> -->
+                         <div class=" item-dropdown-select">
+                           <button class="btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <span class="item-dropdown">
+                                 <div>
+                                   <span class="list__item__anchor" style="left:-100px">
+                                       <div>
+                                         <div style="display: inline-block; margin: 0px 4px 0px 0px;">
+                                           <div color="106, 160, 56" class="gGddik">time
+                                           </div>
+                                         </div>
+                                         <span class="list__item__anchor">DateTime</span>
+                                       </div>
+                                   </span>
+                               </div>
+                                </span>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">
+                              <div class="dropdown-select">
+                                <div style="display: inline-block; margin: 4px 4px 4px 6px;">
+                                  <div color="106, 160, 56" class="gGddik">cloudy
+                                  </div>
+                                </div>
+                                <span class="list__item__anchor">factor</span>
+                              </div>
+                              </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="dropdown-select">
+                                  <div style="display: inline-block; margin: 4px 4px 4px 6px;">
+                                    <div color="106, 160, 56" class="gGddik">rainy
+                                    </div>
+                                  </div>
+                                  <span class="list__item__anchor" >factor</span>
+                                </div>
+                              </a>
+                            <a class="dropdown-item" href="#">
+                              <div class="dropdown-select">
+                                <div style="display: inline-block; margin: 4px 4px 4px 6px;">
+                                  <div color="106, 160, 56" class="gGddik">clear
+                                  </div>
+                                </div>
+                                <span class="list__item__anchor" >factor</span>
+                              </div>
+                            </a>
+                          </div>
+                          </div>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="filter-panel__content sc-gojNiO AZShM">
+                  </div>
+              </div>
+
+
+            <div class="filter-panel" style="margin-top:10px;">
+            <div class="filter-header">
+              <div style="flex-grow: 1;">
+                <div>
+                  <div class="dropdown">
+                    <!-- <div style="position: relative;"> -->
+                      <div class=" item-dropdown-select">
+                        <button class="btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="item-dropdown">
+                              <div>
+                                <span class="list__item__anchor" style="left:-100px">Select a Field</span>
+                            </div>
+                             </span>
+                       </button>
+                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                         <a class="dropdown-item" href="#">
+                           <div class="dropdown-select">
+                             <div style="display: inline-block; margin: 0px 4px 0px 0px;">
+                               <div color="106, 160, 56" class="sc-TOsTZ gGddik">cloudy
+                               </div>
+                             </div>
+                             <span class="list__item__anchor">DateTime</span>
+                           </div>
+                           </a>
+                         <a class="dropdown-item" href="#">rainy</a>
+                         <a class="dropdown-item" href="#">clear</a>
+                       </div>
+                       </div>
+                     <!-- </div> -->
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="filter-panel__content sc-gojNiO AZShM">
+             </div>
+           </div>
+
+
+        </div>
+        <div class="interaction-manager">
+          <div class="fishnet-info wCarouselWrapper">
+            <div class="fishnet-icon-wrapped">
+                  <div class="fishnet-icon">
+                    <svg x="0px" y="0px" width="40.7px" height="40.1px" viewBox="0 0 460.7 460.1" style="left:20px;">
+                        <defs>
+                        </defs>
+                        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="80.4449" y1="79.1658" x2="359.3127" y2="402.0848">
+                        	<stop  offset="0.152" style="stop-color:#21BFD7"/>
+                        	<stop  offset="0.4743" style="stop-color:#2C84F0"/>
+                        	<stop  offset="0.8764" style="stop-color:#A626FB"/>
+                        </linearGradient>
+                        <path class="st0" d="M426.7,121.9v222.3L213.3,466.1L0,344.2V121.9L213.3,0L426.7,121.9z"/>
+                    </svg>
+                  </div>
+                  <div class="fishnet-id">
+                    Neighborhood:
+                  </div>
+            </div>
+          </div>
+          <div class="scroll-panel">
+            <div class="left-shadow" is=""></div>
+            <div class="right-shadow" is=""></div>
+
+            <div class="wCarouselWrapper">
+              <div class="wCarouselListing" id="tendayCarousel-0">
+                <ul class="seven-day wCarouselList" style="left: -327px; width: 1091px; padding:0px;" is="">
+                  <div class="first-five-wrapper">
+                    <li>
+                      <div class="day" style="opacity: 1;">
+                        11pm
+                      </div>
+                      <div class="icon">
+                          <span class="circle-placeholder"></span>
+                      </div>
+                      <div class="fcast">
+                          Moderate
+                      </div>
+
+                      <div class="precip">
+                        <h4>5min</h4></div>
+                    </li>
+                    <li>
+                      <div class="day" style="opacity: 1;">
+                        12am
+                      </div>
+                      <div class="icon">
+                          <span class="circle-placeholder"></span>
+                      </div>
+                      <div class="fcast">
+                          Moderate
+                      </div>
+
+                      <div class="precip">
+                        <h4>30%</h4></div>
+                    </li>
+                    <li>
+                      <div class="day" style="opacity: 1;">
+                        1am
+                      </div>
+                      <div class="icon">
+                          <span class="circle-placeholder"></span>
+                      </div>
+                      <div class="fcast">
+                          FreeFlow
+                      </div>
+
+                      <div class="precip">
+                        <h4>30%</h4></div>
+                    </li>
+                    <li>
+                      <div class="day" style="opacity: 1;">
+                        2am
+                      </div>
+                      <div class="icon">
+                          <span class="circle-placeholder"></span>
+                      </div>
+                      <div class="fcast">
+                          FreeFlow
+                      </div>
+
+                      <div class="precip">
+                        <h4>30%</h4></div>
+                    </li>
+                    <li>
+                      <div class="day" style="opacity: 1;">
+                        3am
+                      </div>
+                      <div class="icon">
+                          <span class="circle-placeholder"></span>
+                      </div>
+                      <div class="fcast">
+                          Moderate
+                      </div>
+
+                      <div class="precip">
+                        <h4>30%</h4></div>
+                    </li>
+                    <li>
+                      <div class="day" style="opacity: 1;">
+                        4am
+                      </div>
+                      <div class="icon">
+                          <span class="circle-placeholder"></span>
+                      </div>
+                      <div class="fcast">
+                          Moderate
+                      </div>
+
+                      <div class="precip">
+                        <h4>30%</h4></div>
+                    </li>
+
+
+                  </div>
+                </ul>
+                <span class="pager prevButton">«</span>
+                <span class="pager prevButton">»</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+     </div>
+
+     <div class="chart-container">
+       <button id="modalBlow-btn">
+       <a  href="#" data-toggle="modal" title="explode" data-target="#BlowModal"  currentitem="false" style="margin-left:230px;">
+         <svg id="zoomed" viewBox="0 0 64 64" width="18px" height="18px" style="fill: currentcolor;" >
+             <path d="M41.68,41.16l-11.36-5a3,3,0,0,1-1.74-3L29.86,19h3l1.48,13.29,8.86,5.91Z">
+             </path>
+             <path d="M32.21,11.7A20.06,20.06,0,1,1,12.15,31.77,20.09,20.09,0,0,1,32.21,11.7m0-3.65A23.71,23.71,0,1,0,55.92,31.77,23.71,23.71,0,0,0,32.21,8.06Z">
+             </path>
+         </svg>
+
+       </a>
+      </button>
+        <canvas id="chart"></canvas>
+    </div>
+
+    <div class="modal fade" id="BlowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog Mcenter" role="document">
+        <div class="modal-content" id="modal-con">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <!-- <span aria-hidden="true" style="color: #fff;">&times;</span> -->
+
+                  <div>
+                    <svg viewBox="0 0 64 64" width="12px" height="12px" style="fill: #fff;" class="data-ex-icons-closewindow ">
+                      <g transform="translate(8,8)">
+                        <path d="M16.127688,49.4434399 L0.686714703,34.0024666 C-0.228904901,33.086847 -0.228904901,31.6023343 0.686714703,30.6867147 C1.12641074,
+                        30.2470187 1.72276655,30 2.34459065,30 L17.785564,30 C19.0804456,30 20.1301546,31.049709 20.1301546,32.3445907 L20.1301546,47.785564 C20.1301546,
+                        49.0804456 19.0804456,50.1301546 17.785564,50.1301546 C17.1637399,50.1301546 16.5673841,
+                        49.883136 16.127688,49.4434399 Z">
+                        </path>
+                        <path d="M45.127688,19.4434399 L29.6867147,4.0024666 C28.7710951,3.086847 28.7710951,
+                          1.60233431 29.6867147,0.686714703 C30.1264107,0.247018663 30.7227665,-8.17124146e-14 31.3445907,
+                          -8.17124146e-14 L46.785564,-7.7547585e-14 C48.0804456,-7.7547585e-14 49.1301546,1.04970899 49.1301546,
+                          2.34459065 L49.1301546,17.785564 C49.1301546,19.0804456 48.0804456,20.1301546 46.785564,
+                          20.1301546 C46.1637399,20.1301546 45.5673841,19.883136 45.127688,19.4434399 Z"
+                          transform="translate(39.065077, 10.065077) rotate(-180.000000) translate(-39.065077, -10.065077)">
+                      </path>
+                      </g>
+                    </svg>
+                  </div>
+            </button>
+          </div>
+
+          <div class="modal-body">
+              <div class="chart-container2">
+
+                <canvas id="chart2" style="width: 750px;"></canvas>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- <svg viewBox="0 0 64 64" width="18px" height="18px" style="fill: currentcolor;" >
+      <path d="M41.68,41.16l-11.36-5a3,3,0,0,1-1.74-3L29.86,19h3l1.48,13.29,8.86,5.91Z">
+      </path>
+      <path d="M32.21,11.7A20.06,20.06,0,1,1,12.15,31.77,20.09,20.09,0,0,1,32.21,11.7m0-3.65A23.71,23.71,0,1,0,55.92,31.77,23.71,23.71,0,0,0,32.21,8.06Z">
+      </path>
+    </svg> -->
+
+
+
+<!-- Adding Sliders -->
+      <div class="container nav-label" id="sidebar-bottom">
+          <ul class="pagination" style="text-align:center">
+            <li><a href="#"><span class="dot"></span></a></li>
+            <li><a href="#"><span class="dot"></span></a></li>
+            <li><a href="#"><span class="dot"></span></a></li>
+          </ul>
+      </div>
+
+     </div>
+
+
+    <script src="js/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script src="js/leaflet-svg-shape-markers.js"></script> -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/jquery-2.2.0.js"></script>
+    <!-- Javascript Code for navbar and sidepanels -->
+    <script src="js/sidebar.js"></script>
+    <script src="js/sidebartext.js"></script>
+    <!-- Javascript Code for charts -->
+    <script src="js/charts.js"></script>
+
+    <!-- Javascript Code for map -->
+    <script>
+
+      var map = L.map('map', {
+        center: [38.242,-85.793],
+        zoom: 12,
+        zoomControl: false
+      });
+
+      var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
+
+      var mapbox_Lite = L.tileLayer('https://api.mapbox.com/styles/v1/dhruvs04/cjtehgcvh31ym1fleyjaq7cu3/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGhydXZzMDQiLCJhIjoiY2psZWkxem45MDZuNjNrcWhkZDMxdXo5byJ9.O_pXu61MgF8AfZiWLaR5pA', {
+         minZoom: 0,
+         maxZoom: 20,
+      }).addTo(map);
+
+
+    </script>
+
+
+  </body>
+</html>

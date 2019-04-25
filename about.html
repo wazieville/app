@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Mapbox GL -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+     <title>Drive Waze</title>
+     <style>
+
+         canvas {
+                position: absolute;
+                top: 0;
+                }
+     </style>
+
+  </head>
+
+  <body>
+
+      <div class="header">
+        <h2 > DriveWaze</h2>
+      </div>
+      <div class="container">
+      <div id='about-screen' style="display: block;">
+          <div id='about-close'></div>
+          <div id='about-screen-content'>
+            <div id='about-title'>Congestion Prediction Modeling</div>
+            <div id='about-description' >This applications allows the users to visualize predicted traffic congestion patterns for
+            the city of louisville. This project was made in conjunction to the City of Louisville, who have parted with Waze.</div>
+            <div id='about-modes'>
+              <div id='about-modes-description'> There are three components to the prokect</div>
+              <div id='about-mode-explore'><div id='about-mode-explore-btn'>Algorithm</div></div>
+              <div id='about-mode-demo'><div id='about-mode-demo-btn'>Explore</div></div>
+              <div id='about-mode-calendar'><div id='about-mode-calendar-btn'>Results</div></div>
+            </div>
+            <div id='about-go'>
+              <div id='about-go-btn'>
+                <a id="index" href="index.html">Start </a>
+              </div>
+            </div>
+          </div>
+       </div>
+     </div>
+
+
+    <script src="js/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script src="js/leaflet-svg-shape-markers.js"></script> -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/sidebartext.js"></script>
+
+    <!-- Javascript Code -->
+
+
+  </body>
+</html>
