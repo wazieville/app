@@ -285,6 +285,25 @@ button.button {
   color: #fff;
 }
 
+#app-header {
+  height:100px;
+  left:300px;
+  text-align: center;
+}
+
+#app-logo {
+  width: 200px;
+  float:left;
+}
+
+#app-title {
+  display: inline-block;
+  padding-top: 70px;
+  margin-left: -70px;
+  font-size:5rem;
+}
+
+
 
 /* second page css */
 
@@ -787,6 +806,9 @@ ul.seven-day li .precip {
   fill:url(#SVGID_1_);
 }
 
+.st1{
+  fill:url(#SVGID_2_);
+}
 
 .fishnet-icon {
   height: 50px;
