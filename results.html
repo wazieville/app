@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Mapbox GL -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
+     <title>Wazieville</title>
+     <style>
+     body {
+         padding: 0;
+         overflow: hidden;
+         font-family: avenir;
+         color: #fff;
+     }
+
+
+     .map {
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       width: 100%;
+     }
+
+
+     </style>
+
+  </head>
+
+  <body>
+
+        <div id='prediction' class='map'></div>
+        <div id='errors' class='map'></div>
+
+    <!-- Javascript Code -->
+    <!-- <script src="js/leaflet.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+    <script src="js/underscore.js"></script>
+
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGhydXZzMDQiLCJhIjoiY2psZWkxem45MDZuNjNrcWhkZDMxdXo5byJ9.O_pXu61MgF8AfZiWLaR5pA';
+
+
+    var beforeMap = new mapboxgl.Map({
+    container: 'prediction',
+    style: 'mapbox://styles/dhruvs04/cjtehgcvh31ym1fleyjaq7cu3',
+    center: [-85.740789, 38.230422],
+    zoom: 10
+    });
+
+    var afterMap = new mapboxgl.Map({
+    container: 'errors',
+    style: 'mapbox://styles/dhruvs04/cjv76y53v0ha51fpcaggqabe4',
+    center: [-85.740789, 38.230422],
+    zoom: 10
+    });
+
+    new mapboxgl.Compare(beforeMap, afterMap, {
+      // Set this to enable comparing two maps by mouse movement:
+      // mousemove: true
+      });
+    </script>
+
+  </body>
+</html>
