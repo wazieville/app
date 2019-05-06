@@ -8,10 +8,12 @@
   $('.filter-manager').hide();
   $('.interaction-manager').hide();
   $('.chart-container').hide();
+  $('.hr-scrl').hide();
 
   $('.Interact').click(function(e){
     $('.filter-manager').hide();
     $('.chart-container').hide();
+    $('.hr-scrl').hide();
     $('.interaction-manager').show();
   });
 
@@ -19,27 +21,9 @@
     $('.interaction-manager').hide();
     $('.filter-manager').show();
     $('.chart-container').show();
-    // new Chart(document.getElementById("chart"),
-    // {"type":"line",
-    //  "data":{"labels":["January","February","March","April","May","June","July"],"datasets":[
-    //     {"label":"My First Dataset",
-    //       "data":[65,59,80,81,56,55,40],
-    //       "fill":false,
-    //       "borderColor":"rgb(75, 192, 192)",
-    //       "lineTension":0.1}]},
-    //       "options":{
-    //           legend: {
-    //              display: false,
-    //              position: 'right',
-    //            },
-    //          scales:{
-    //            xAxes: [{
-    //               ticks: {
-    //                 fontSize: 8,
-    //               }
-    //             }],
-    //          },}
-    //   });
+    $('.hr-scrl').show();
+    map.setLayoutProperty('grids', 'visibility', 'visible');
+    map.setLayoutProperty('grid-highlighted', 'visibility', 'none');
   });
 
 
@@ -47,3 +31,15 @@
     $('#myInput').trigger('focus');
     $('#chart2').show();
   });
+
+  var fishinfo =  function () {
+      $('.filter-manager').hide();
+      $('.chart-container').hide();
+      $('.hr-scrl').hide();
+      $('.interaction-manager').show();
+  };
+
+  var fInfo = function () {
+    var id = filter[3];
+    document.getElementById('fid').innerText = id;
+  };

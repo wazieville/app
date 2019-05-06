@@ -5,18 +5,6 @@ body {
     color: #fff;
 }
 
-/* .header {
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    top: 0;
-    height: 50px;
-    background-color: #1b1b1b;
-    font-family: avenir;
-    padding-left: 10px;
-} */
-
-
 #map {
     position: absolute;
     right: 0px;
@@ -36,6 +24,14 @@ hr.style1{
 
  }
 
+ .hr-scrl {
+   width:33%;
+   height: 50px;
+   position: absolute;
+   right: 50px;
+   bottom:50px;
+   background-color: rgba(41, 50, 60,0.5);
+ }
 
 .sidebar {
     position: absolute;
@@ -89,6 +85,60 @@ button.button {
   color: #383838;
   font-size: 14px;
   border-radius: 8px;
+}
+
+.hr-slide-title {
+  position: relative;
+  left: 8px;
+  top:25%;
+  width:70px;
+}
+
+#hr-slider{
+  position: relative;
+  left:30px;
+  top:12%;
+
+}
+
+.sliderticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  width: 97%;
+}
+
+.weekticks{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  width: 120%;
+}
+
+.sliderticks p {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 1px;
+  background: #D3D3D3;
+  height: 3px;
+  line-height: 25px;
+  margin: 0 0 20px 0;
+  font-size: 0.8rem;
+}
+
+.weekticks p {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 1px;
+  background: rgb(160, 167, 180);
+  height: 2px;
+  line-height: 25px;
+  margin: 0 0 20px 0;
+  font-size: 0.8rem;
 }
 
 /* map css  */
@@ -209,14 +259,15 @@ button.button {
   line-height: 24px;
   text-align: left;
   font-size: 14px;
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 #about-title {
   font-size: 32px;
-  text-align: center;
+  /* text-align: center; */
   margin-top: 40px;
   margin-bottom: 20px;
+  margin-left: 10%;
 }
 
 #about-description {
@@ -288,7 +339,7 @@ button.button {
 #app-header {
   height:100px;
   left:300px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 #app-logo {
@@ -475,6 +526,55 @@ button.button {
 
 }
 
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 5px;
+  background: rgb(36, 39, 48);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-left: 40px;
+  margin-top: -8px;
+  padding-left: 3px;
+}
+
+
+
+.slider::-moz-range-thumb {
+  z-index: 10;
+  display: block;
+  height: 10px;
+  width: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
+  background-color: rgb(211, 216, 224);
+  border-width: 3px;
+  border-radius: 0.2px;
+  border-style: solid;
+  border-color: rgb(211, 216, 224);
+  cursor: pointer;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider-title {
+  color: rgb(160, 167, 180);
+  font-size: 13px;
+  line-height: 12px;
+  margin-left: -12px;
+  padding-left: 10px;
+  text-transform: capitalize;
+  letter-spacing: 0.2px;
+}
+
 .gGddik {
 
     background-color: rgba(106, 160, 56, 0.2);
@@ -602,12 +702,6 @@ canvas {
 }
 
 
-/* .zoomed{
-  fill:#000;
-  position:absolute;
-  margin-left: 230px;
-
-} */
 
 #zoomed:hover{
   fill:#fff;
@@ -652,12 +746,7 @@ canvas {
     z-index: 10;
 }
 
-
-/* .wCarouselWrapper {
-    width: 258px;
-    height: 200px;
-} */
-
+/* scroll panel on interaction side panel  */
 .scroll-panel {
     float: left;
     margin: 0 0 10px;
@@ -671,15 +760,10 @@ canvas {
     position: relative;
     width: 258px;
     float: left;
-    margin-top: 2px;
-    height: 180px;
+    margin-top: 1px;
+    height: 150px;
+    border-left: 3px solid #00ffea;
 }
-
-/* .wCarouselListing {
-    height: 200px;
-    left: 0;
-    width: 680px;
-} */
 
 .wCarouselListing {
     width: 258px;
@@ -692,60 +776,35 @@ canvas {
     overflow: hidden;
 }
 
+
+.horizontal-menu-items {
+      height: 100%;
+      white-space: nowrap;
+      padding: 30px 0px 10px 0px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      appearance: none;
+      -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-menu > li, .menu-item {
+        display: inline-block;
+        font-size: 1rem;
+        line-height: 1;
+        padding: 0 5px;
+        width: 100px;
+        background-image: url(https://media.nbcmiami.com/designimages/hourly-divider.png);
+        background-repeat: no-repeat;
+        text-align: center;
+        position: relative;
+      }
+
+
 .wCarouselListing li {
     margin-top: 0;
 }
 
-
-ul.seven-day .first-five-wrapper {
-    display: inline-block;
-    height: 180px;
-    padding-top: 30px;
-}
-
-/* ul.seven-day {
-    list-style: none;
-    font-family: Roboto,sans-serif;
-    font-weight: 300;
-    padding:0;
-
-
-} */
-
-ul.seven-day {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    /* font-family: Roboto,sans-serif; */
-    font-weight: 300;
-    border-top: 3px solid #00ffea;
-    margin:0;
-    height: 180px;
-    width: 680px;
-    /* background-image: url(https://media.nbcmiami.com/designimages/hourly-section-divider.png);
-    background-position: bottom;
-    background-repeat: no-repeat; */
-    background-color: rgb(41, 50, 60);
-}
-
-
-
-ul.seven-day li {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 90px;
-    margin-right: -4px;
-    text-align: center;
-    display: inline-block;
-    background-image: url(https://media.nbcmiami.com/designimages/hourly-divider.png);
-    /* background-position: 100%; */
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-
-ul.seven-day li .day {
- /* font-family:Roboto,sans-serif; */
+li .day {
  font-weight:400;
  font-size:14px;
  padding-bottom:4px;
@@ -753,52 +812,35 @@ ul.seven-day li .day {
 }
 
 .circle-placeholder {
-  height: 25px;
-  width: 25px;
+  height: 8px;
+  width: 8px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+  margin: 5px 5px 5px 5px;
 }
 
-ul.seven-day li .icon {
- padding-top:10px;
- background:none
-}
-
-ul.seven-day li .fcast {
+li .fcast {
     font-size: 0.8rem;
     padding: 10px 0 21px;
     height: 26px;
     line-height: 18px;
 }
 
-/* ul.seven-day li .temp {
-    font-size: 0.8rem;
-    color: #232323;
-    padding-bottom: 5px;
-}
 
-ul.seven-day li .temp > div:first-child {
-    color: #323232;
-    padding-right: 4px;
-}
-
-ul.seven-day li .temp > div:last-child {
-    color: #b2b2b2;
-} */
-
-
-ul.seven-day li .precip {
+li .precip {
     font-family:Roboto,sans-serif;
     font-size: 0.8rem;
     color: rgb(106, 160, 56);
     padding-bottom: 5px;
 }
 
+/* getting and displaying fishnet information  */
+
 .fishnet-info {
   height: 150px;
   background-color: rgb(41, 50, 60);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .st0{
@@ -810,13 +852,54 @@ ul.seven-day li .precip {
 }
 
 .fishnet-icon {
+
   height: 50px;
-  width:50px;
-  position:relative;
-  margin: 5px 0px 20px 50px;
+  width: 50px;
+  position: relative;
+  margin: 5px 0px 20px 10px;
   float: left;
 }
 
 .fishnet-id {
   display: flex;
+}
+
+
+.f-neigh {
+
+  margin: 60px 5px 10px 10px;
+  width: 250px;
+  text-align: left;
+  position: absolute;
+
+}
+
+.fid-title {
+  margin: 15px 5px 10px 70px;
+  width: 200px;
+  position: absolute;
+  }
+
+
+.f-Roads {
+
+  position: absolute;
+  width: 250px;
+  text-align: left;
+  margin: 100px 5px 10px 10px;
+}
+
+.fishnet-info {
+  display: inline-block;
+  color: rgb(160, 167, 180);
+  font-size: 0.9rem;
+  font-weight: 100;;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+
+#fid, #neigh, #rtypes {
+  width: 80px;
+  display: inline;
+
 }
