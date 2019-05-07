@@ -19,7 +19,10 @@ var map = new mapboxgl.Map({
   zoom: 12
 });
 
+// var colorRamp = ["#bcbcbc","#21BFD7", "#26A1E3","#2C84F0" ,"#6955F5", "#A626FB"];
 
+var colorRamp = ["#bcbcbc",'#21BFD7', '#2C84F0' ,'#A626FB', 'D01B1B','#21D78F'];
+var  brks = [-1.562,0.3537,1.5377,2.5,5.3444,12.562];
 
 var plot1Func = function() {
   // clearMap();
@@ -76,26 +79,43 @@ function addr(dat) {
 
 
 var poly = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishfake20.geojson";
+var fishHr = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fish_av_hour.geojson";
+var fishwDay = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fish_av_wday.geojson";
+var fishhour,fishWeek,polyparsed;
 
-var polyparsed;
-
-var colorRamp = ["#21bfd7","#2c84f0","#a626fb","#21d78f","#858aa0"];
 
 
+
+$.ajax(fishHr).done(function(fdat) {
+  // Parse JSON
+  fish = JSON.parse(fdat);
+  console.log("hour done!");
+});
+
+$.ajax(fishwDay).done(function(fdat) {
+  // Parse JSON
+  fishWeek = JSON.parse(fdat);
+  console.log("weekday done!");
+});
+
+// either run the code below or directly call it from url
 $.ajax(poly).done(function(poly){
   // Parse JSON
   polyparsed = JSON.parse(poly);
   // Show the initial slide
 
+    console.log("done!");
+});
+
   var flt_month = ['==', "month", 5];
   var flt_wDay = ['==', "weekDay", 5];
   var flt_hr = ['==', "hour", 10];
 
-  map.on('style.load',function(){
+map.on('style.load',function(){
 
     map.addSource('fishnets', {
       type: 'geojson',
-      data: polyparsed
+      data: poly
       });
 
     map.addLayer({
@@ -105,8 +125,18 @@ $.ajax(poly).done(function(poly){
       'layout': {
         'visibility': 'visible'},
       'paint':{
-        'fill-color':'#f3f333',
-        'fill-opacity': 0.08,
+        // 'fill-color':'#f3f333',
+        "fill-color": {
+          property: 'prdctns',
+          stops: [
+            [brks[0], colorRamp[0]],
+            [brks[1], colorRamp[4]],
+            [brks[2], colorRamp[3]],
+            [brks[3], colorRamp[3]],
+            [brks[4], colorRamp[1]],
+            [brks[5], colorRamp[2]]]
+          },
+        'fill-opacity': 0.1,
         'fill-outline-color':'#fff',
       }
       });
@@ -171,22 +201,17 @@ $.ajax(poly).done(function(poly){
         map.setLayoutProperty('grid-highlighted', 'visibility', 'visible');
         fishinfo();
         map.setLayoutProperty('grids', 'visibility', 'none');
+        // updating the ID info
         var id = filter[3];
         document.getElementById('fid').innerText = id;
-
+        gethrinfoID(id);
+        // getting the address info
         var coords = e.lngLat;
 
         var url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + coords.lng.toString()+','+coords.lat.toString()+".json?access_token="+mapboxgl.accessToken;
         $.get(url, function(data){
             var dat = data;
-            console.log(addr(dat));
-            var adtext = addr(dat)
-            document.getElementById('neigh').innerText =adtext;
+            document.getElementById('neigh').innerText =addr(dat);
           });
-
         });
-  });
-
-
-    console.log("done!");
 });

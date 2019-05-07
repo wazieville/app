@@ -33,7 +33,10 @@
       <div class="container nav-label">
         <p><h2>Wazieville</h2></p>
         <p style="font-size: 0.8em;">
-            Click on either scenarios or Information to being!
+            Click on either scenarios or Information to being, or click on Help for assistance!
+        </p>
+        <p style="font-size: 0.8em; font-style:italic;">
+            If the gridcells don't load up upon starting the app, try refreshing the link once or twice.
         </p>
 
         <div>
@@ -73,7 +76,10 @@
 
         <div class="filter-manager">
           <div class="content-title">
-            Filters </div>
+            Filters
+            <p style="font-size: 0.8em; font-weight: 1;">
+                Slide the month, weekday or hour slider to see the changes.
+            </p></div>
 
             <!-- Month Selector  -->
 
@@ -253,6 +259,11 @@
 
         </div>
         <div class="interaction-manager">
+          <div class="content-title">
+            Gridcell
+            <p style="font-size: 0.8em; font-weight: 1;">
+                Click on either of the gridcell to get specefic information.
+            </p></div>
           <div class="fishnet-info wCarouselWrapper">
             <div class="fishnet-icon-wrapped">
                   <div class="fishnet-icon">
@@ -273,23 +284,11 @@
             <!-- <div class = "f-Roads" > Roads Types: <p id= "rtypes"> <p></div> -->
           </div>
           <div class="scroll-panel">
+            <div class="con-len-title">  Avg Congestion length:
+              <div style="width:200px;border-bottom: 1px solid rgb(160, 167, 180);"> </div> </div>
             <div class="wCarouselWrapper horizontal-menu">
               <div class="wCarouselListing" id="tendayCarousel-0">
               <ul class="horizontal-menu-items">
-                  <li class="menu-item">
-                    <div class="day" style="opacity: 1;">
-                      11pm
-                    </div>
-                    <div class="icon">
-                        <span class="circle-placeholder"></span>
-                    </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
-
-                    <div class="precip">
-                      <h4>5min</h4></div>
-                  </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
                       12am
@@ -297,12 +296,9 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am12">
+                      <h4> 5 min</h4></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -311,12 +307,9 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am1">
+                      <h4>3 min</h4></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -325,12 +318,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am2"> <h4> 2 mins</h4> </div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -339,12 +328,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am3"> <h4> 0 mins</h4></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -353,12 +338,7 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
-
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am4"> <h4> 1 mins</h4></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -367,12 +347,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am5"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -381,12 +357,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip"id="am6"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -395,12 +367,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am7"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -409,12 +377,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am8"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -423,12 +387,7 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
-
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am9"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -437,12 +396,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am10"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -451,12 +406,7 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
-
-                    <div class="precip">
-                      <h4>5min</h4></div>
+                    <div class="precip" id="am11"></div>
                   </li>
                   <li class="menu-item">
                     <div class="day" style="opacity: 1;">
@@ -465,11 +415,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm12">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -479,11 +426,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm1">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -493,11 +437,9 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+
+                    <div class="precip" id="pm2">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -507,11 +449,7 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
-
-                    <div class="precip">
+                    <div class="precip" id="pm3">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -521,11 +459,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm4">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -535,11 +470,7 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
-
-                    <div class="precip">
+                    <div class="precip" id="pm5">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -549,11 +480,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm6">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -563,11 +491,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm7">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -577,11 +502,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm8">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -591,11 +513,8 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
-                    </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm9">
                       <h4>5min</h4></div>
                   </li>
                   <li class="menu-item">
@@ -605,32 +524,72 @@
                     <div class="icon">
                         <span class="circle-placeholder"></span>
                     </div>
-                    <div class="fcast">
-                        Moderate
+
+                    <div class="precip" id="pm10">
+                      <h4>5min</h4></div>
+                  </li>
+                  <li class="menu-item">
+                    <div class="day" style="opacity: 1;">
+                      11pm
+                    </div>
+                    <div class="icon">
+                        <span class="circle-placeholder"></span>
                     </div>
 
-                    <div class="precip">
+                    <div class="precip" id="pm11">
                       <h4>5min</h4></div>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="weekday-panel wCarouselWrapper">
-              <div class="wCarouselListing">
-                <ul class="vertical-menue-list">
-                    <li class="vmenu-item">
-                      <div class="day" style="opacity: 1;">
-                        MONDAY
+          <!-- <div class="weekday-panel wCarouselWrapper">
+              <div class="wCarouselListing" style= "height: 130px;">
+                <ul class="vertical-menue-list" style="list-style-type: none; ">
+                    <li class="vmenu-item" >
+                      <div class="day" style="opacity: 1; display:inline;">
+                        MON
                       </div>
-                      <div class="icon">
-                          3mins
+                      <div class="icon" id="MonCon" style=" display:inline; margin-left:20px;">
+                        3 mins
+                      </div>
+                    </li>
+                    <li class="vmenu-item">
+                      <div class="day" style="opacity: 1;display:inline; ">
+                        MON
+                      </div>
+                      <div class="icon" id="MonCon" style="display:inline; margin-left:20px;">
+                        3 mins
+                      </div>
+                    </li>
+                    <li class="vmenu-item">
+                      <div class="day" style="opacity: 1;display:inline;">
+                        TUE
+                      </div>
+                      <div class="icon" id="TueCon" style="display:inline; margin-left:20px;">
+                        3 mins
+                      </div>
+                    </li>
+                    <li class="vmenu-item">
+                      <div class="day" style="opacity: 1;display:inline;">
+                        WED
+                      </div>
+                      <div class="icon" id="WedCon" style=" display:inline; margin-left:20px;">
+                        3 mins
+                      </div>
+                    </li>
+                    <li class="vmenu-item">
+                      <div class="day" style="opacity: 1;display:inline;">
+                        THUR
+                      </div>
+                      <div class="icon" id="ThurCon" style=" display:inline; margin-left:20px;">
+                        3 mins
                       </div>
                     </li>
                 </ul>
               </div>
 
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -691,11 +650,12 @@
 
 
 <!-- Adding Sliders -->
-      <div class="container nav-label" id="sidebar-bottom">
+      <div class="nav-label" id="sidebar-bottom">
           <ul class="pagination" style="text-align:center">
-            <li><a href="about.html" style="margin-right:20px;"><span>About</span></a></li>
-            <li><a href="RMarkdown.html" style="margin-right:20px;"><span>Algorithm</span></a></li>
-            <li><a href="results.html"><span>Results</span></a></li>
+            <li><a href="about.html" style="margin-right:15px;"><span>About</span></a></li>
+            <li><a href="RMarkdown.html" style="margin-right:15px;"><span>Algorithm</span></a></li>
+            <li><a href="results.html" style="margin-right:15px;"><span>Results</span></a></li>
+            <li><a href="help.html"><span>Help</span></a></li>
           </ul>
       </div>
       <!-- class="dot" -->
@@ -728,6 +688,7 @@
     <!-- Javascript Code for navbar and sidepanels -->
     <script src="js/sidebar.js"></script>
     <script src="js/sidebartext.js"></script>
+    <script src ="js/helperfunctions.js"></script>
     <!-- Javascript Code for charts -->
     <script src="js/charts.js"></script>
 
