@@ -21,8 +21,8 @@ var map = new mapboxgl.Map({
 
 // var colorRamp = ["#bcbcbc","#21BFD7", "#26A1E3","#2C84F0" ,"#6955F5", "#A626FB"];
 
-var colorRamp = ["#bcbcbc",'#21BFD7', '#2C84F0' ,'#A626FB', 'D01B1B','#21D78F'];
-var  brks = [-1.562,0.3537,1.5377,2.5,5.3444,12.562];
+var colorRamp = ["#bcbcbc",'#21BFD7', '#2C84F0' ,'#A626FB', '#D01B1B','#21D78F'];
+var  brks = [-1.562,2.5,5,10,25,90];
 
 var plot1Func = function() {
   // clearMap();
@@ -77,8 +77,42 @@ function addr(dat) {
   return fHtml;
 }
 
+var mt;
 
-var poly = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishfake20.geojson";
+document.getElementById('mslider').addEventListener('input', function(e) {
+  mt = parseInt(e.target.value);
+    // console.log(mt);
+});
+
+
+var polyAr = [
+  "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishJan.geojson",
+  "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishFeb.geojson"
+  // "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishMar.geojson",
+  // "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishApr.geojson",
+  // "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishMay.geojson",
+  // "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishJun.geojson"
+];
+
+function choosepoly(n){
+  if(n==1){return polyAr[0];
+  } else if (n==2) {
+    return polyAr[1];}
+  // }else if (n==3) {
+  //   return poly[2];
+  // }else if (n==4) {
+  //   return poly[3];
+  // }else if (n==5) {
+  //   return poly[4];
+  // } else if (n==6) {
+  //   return poly[5];
+  // }
+}
+
+
+
+// var poly = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishJan.geojson";
+var poly = polyAr[0];
 var fishHr = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fish_av_hour.geojson";
 var fishwDay = "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fish_av_wday.geojson";
 var fishhour,fishWeek,polyparsed;
@@ -99,78 +133,108 @@ $.ajax(fishwDay).done(function(fdat) {
 });
 
 // either run the code below or directly call it from url
-$.ajax(poly).done(function(poly){
-  // Parse JSON
-  polyparsed = JSON.parse(poly);
-  // Show the initial slide
+// $.ajax(poly).done(function(poly){
+//   // Parse JSON
+//   polyparsed = JSON.parse(poly);
+//   // Show the initial slide
+//
+//     console.log("done!");
+// });
 
-    console.log("done!");
-});
 
-  var flt_month = ['==', "month", 5];
-  var flt_wDay = ['==', "weekDay", 5];
-  var flt_hr = ['==', "hour", 10];
+  // var flt_month = ['==', "Mnth", 1];
+  var flt_wDay = ['==', "Weekday", 1];
+  var flt_hr = ['==', "Hour", 10];
 
 map.on('style.load',function(){
 
-    map.addSource('fishnets', {
-      type: 'geojson',
-      data: poly
+
+      map.addSource('fishnets_grids', {
+        type: 'geojson',
+        data: "https://raw.githubusercontent.com/msdakot/Congestion-Prediction-in-Louisville-KY/master/database/fishnets.geojson"
       });
 
-    map.addLayer({
-      "id":"grids",
-      "type":"fill",
-      'source': 'fishnets' ,
-      'layout': {
-        'visibility': 'visible'},
-      'paint':{
-        // 'fill-color':'#f3f333',
-        "fill-color": {
-          property: 'prdctns',
-          stops: [
-            [brks[0], colorRamp[0]],
-            [brks[1], colorRamp[4]],
-            [brks[2], colorRamp[3]],
-            [brks[3], colorRamp[3]],
-            [brks[4], colorRamp[1]],
-            [brks[5], colorRamp[2]]]
-          },
-        'fill-opacity': 0.1,
-        'fill-outline-color':'#fff',
-      }
+      map.addLayer({
+        "id":"grids_empty",
+        "type":"fill",
+        'source': 'fishnets_grids',
+        // 'source-layer':'fishJan-bhb97l',
+        'layout': {
+          'visibility': 'visible'},
+        'paint':{
+          // 'fill-color':'#f3f333',
+          'fill-opacity': 0.1,
+          'fill-outline-color':'#000',
+        }
+        });
+
+      map.addSource('fishnets', {
+        type: 'geojson',
+        data: poly
+          // url:"mapbox://dhruvs04.8wuu9ip0"
       });
 
-      function filterBy(hour) {
+      map.addLayer({
+        "id":"grids",
+        "type":"fill",
+        'source': 'fishnets',
+        // 'source-layer':'fishJan-bhb97l',
+        'layout': {
+          'visibility': 'visible'},
+        'filter': ['all', flt_wDay, flt_hr],
+        'paint':{
+          // 'fill-color':'#f3f333',
+          "fill-color": {
+            property: 'Predicted',
+            stops: [
+              [brks[0], colorRamp[0]],
+              [brks[1], colorRamp[4]],
+              [brks[2], colorRamp[3]],
+              [brks[3], colorRamp[3]],
+              [brks[4], colorRamp[1]],
+              [brks[5], colorRamp[2]]]
+            },
+          'fill-opacity': 0.3,
+          'fill-outline-color':'#fff',
+        }
+        });
 
-          var flt_hr = ['==', "hour", hour];
-          map.setFilter('grids', flt_hr);
-      }
+      map.on('mouseenter', 'grids', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+      map.on('mouseleave', 'grids', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
 
         // document.getElementById('mslider').addEventListener('input', function(e) {
         //   var month = parseInt(e.target.value);
         //   // update the map
-        //   flt_month = ['==', "month", month];
-        //   map.setFilter('grids', ['all', flt_month, flt_wDay, flt_hr]);
-        //   console.log(flt_month);
+        //     flt_month = ['==', "Mnth", month];
+        //     map.setFilter('grids', ['all', flt_month, flt_wDay, flt_hr]);
+        //     console.log(flt_month);
         // });
 
-        //
-        //
-        // document.getElementById('wslider').addEventListener('input', function(e) {
-        //   var wDay = parseInt(e.target.value);
-        //   // update the map
-        //   flt_wDay = ['==', "weekDay", wDay];
-        //   map.setFilter('grids', ['all', flt_month, flt_wDay, flt_hr]);
-        //   console.log(flt_wDay);
-        // });
-        //
-        //
-        //
+      document.getElementById('wslider').addEventListener('input', function(e) {
+        var wDay = parseInt(e.target.value);
+        var weekD = getWeekday(wDay);
+        // update the map
+          flt_wDay = ['==', "Weekday", weekD];
+          map.setFilter('grids', ['all',flt_wDay, flt_hr]);
+          console.log(weekD);
+        });
+
+        function filterBy(hour) {
+
+            var flt_hr = ['==', "Hour", hour];
+            map.setFilter('grids', ['all',flt_wDay, flt_hr]);
+            // map.setLayoutProperty('grids_empty', 'visibility', 'none');
+        }
+
       document.getElementById('hslider').addEventListener('input', function(e) {
         var hour= parseInt(e.target.value);
-        console.log(hour);
-        filterBy(hour);
+          console.log(hour);
+          filterBy(hour);
       });
 
       // Single Gridcell selection
@@ -178,14 +242,15 @@ map.on('style.load',function(){
           "id": "grid-highlighted",
           "type": "fill",
           "source": "fishnets",
+          // 'source-layer':'fishJan-bhb97l',
           'layout': {
             'visibility': 'visible'},
           "paint": {
           "fill-outline-color": "#484896",
           "fill-color": "#6e599f",
-          "fill-opacity": 0.08
+          "fill-opacity": 0.03
           },
-          "filter": ["in", "fshnt_d", ""]
+          "filter": ["in", "FishnetID", ""]
           });
 
       map.on('click', function(e) {
@@ -193,16 +258,18 @@ map.on('style.load',function(){
         var bbox = [[e.point.x - 5, e.point.y - 5], [e.point.x + 5, e.point.y + 5]];
         var features = map.queryRenderedFeatures(bbox, { layers: ['grids'] });
         var filter = features.reduce(function(memo, feature) {
-        memo.push(feature.properties.fshnt_d);
+        memo.push(feature.properties.FishnetID);
         return memo;
-        }, ['in', 'fshnt_d']);
+        }, ['in', 'FishnetID']);
+
+        console.log(filter);
 
         map.setFilter("grid-highlighted", filter);
         map.setLayoutProperty('grid-highlighted', 'visibility', 'visible');
         fishinfo();
         map.setLayoutProperty('grids', 'visibility', 'none');
         // updating the ID info
-        var id = filter[3];
+        var id = filter[2];
         document.getElementById('fid').innerText = id;
         gethrinfoID(id);
         // getting the address info
@@ -215,3 +282,26 @@ map.on('style.load',function(){
           });
         });
 });
+
+
+// map.on('style.load',function(){
+//   map.addSource('fishnets', {
+//         type: 'vector',
+//         // data: poly
+//         url:"mapbox://dhruvs04.8wuu9ip0"
+//         });
+//         map.addLayer({
+//               "id":"grids",
+//               "type":"fill",
+//               'source': 'fishnets',
+//               'source-layer':'fishJan-bhb97l',
+//               'layout': {
+//                 'visibility': 'visible'},
+//               'paint':{
+//                 'fill-color':'#f3f333',
+//                 'fill-opacity': 0.3,
+//                 'fill-outline-color':'#fff',
+//               }
+//               });
+//
+// });

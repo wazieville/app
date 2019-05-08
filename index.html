@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
 
-
-
     <!-- Mapbox GL -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" type="text/css" href="/Chart.min.css">
@@ -211,7 +209,7 @@
                    <div>
                       <div class="dropdown">
                           <div class=" item-dropdown-select">
-                            <button class="btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn-secondary dropdown-toggle butdrop " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="item-dropdown">
                                   <div>
                                     <span class="list__item__anchor" style="left:-100px">Select a Field
@@ -219,38 +217,51 @@
                                 </div>
                                  </span>
                            </button>
-                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                             <a class="dropdown-item" href="#">
-                               <div class="dropdown-select">
+                           <div class="dropdown-menu" id="somlist" aria-labelledby="dropdownMenuButton">
+                             <ul class="filt-list" style="list-style-type: none; ">
+                               <li>
+                             <a class="dropdown-item" data-value="Cloudy" href="#"> Cloudy
+                               <!-- <div class="dropdown-select">
                                  <div style="display: inline-block; margin: 4px 4px 4px 6px;">
                                    <div color="106, 160, 56" class="gGddik">Cloudy
                                    </div>
                                  </div>
                                  <span class="list__item__anchor" style="padding-right:3px;">factor</span>
-                               </div>
-                               </a>
-                             <a class="dropdown-item" href="#">
-                                 <div class="dropdown-select">
+                               </div> -->
+                             </a></li>
+                             <li>
+                             <a class="dropdown-item" data-value="Rainy" href="#"> Rainy
+                                 <!-- <div class="dropdown-select">
                                    <div style="display: inline-block; margin: 4px 4px 4px 6px;">
                                      <div color="106, 160, 56" class="gGddik">Rainy
                                      </div>
                                    </div>
                                    <span class="list__item__anchor" style="padding-right:3px;" >factor</span>
-                                 </div>
-                               </a>
-                             <a class="dropdown-item" href="#">
-                               <div class="dropdown-select">
+                                 </div> -->
+                               </a></li>
+                               <li>
+                             <a class="dropdown-item" data-value="Freeway" href="#"> Freeway
+                               <!-- <div class="dropdown-select">
                                  <div style="display: inline-block; margin: 4px 4px 4px 6px;">
                                    <div color="106, 160, 56" class="gGddik">Freeway
                                    </div>
                                  </div>
                                  <span class="list__item__anchor" style="padding-right:3px;" >factor</span>
-                               </div>
+                               </div> -->
                              </a>
+                           </li>
+                           </ul>
                            </div>
                            </div>
                        </div>
                     </div>
+                    <!-- <select class="select-css" id="toPlot">
+                      <option value="" class="auto" disabled selected>visualize..</option>
+                      <option value="Total Trips">Total Trips</option>
+                      <option value="Docks">Docks</option>
+                      <option value="Inbound">Inbound Trips</option>
+                      <option value="Outbound">Outbound Trips</option>
+                    </select> -->
                   </div>
                 </div>
                 <div class="filter-panel__content sc-gojNiO AZShM"></div>
@@ -655,7 +666,7 @@
             <li><a href="about.html" style="margin-right:15px;"><span>About</span></a></li>
             <li><a href="RMarkdown.html" style="margin-right:15px;"><span>Algorithm</span></a></li>
             <li><a href="results.html" style="margin-right:15px;"><span>Results</span></a></li>
-            <li><a href="help.html"><span>Help</span></a></li>
+            <li><a data-toggle="modal" data-target="#exampleModal"><span>Help</span></a></li>
           </ul>
       </div>
       <!-- class="dot" -->
@@ -675,22 +686,88 @@
       </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md" role="document" id="help-cont" style="width:50%">
+        <div class="modal-content" id="help-cont">
+          <div class="modal-header">
+            <h5 class="modal-title space" id="exampleModalLabel" >How use this App!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <!-- <span aria-hidden="true" style="color: #fff;">&times;</span> -->
+
+                  <div>
+                    <svg viewBox="0 0 64 64" width="12px" height="12px" style="fill: #fff;" class="data-ex-icons-closewindow ">
+                      <g transform="translate(8,8)">
+                        <path d="M16.127688,49.4434399 L0.686714703,34.0024666 C-0.228904901,33.086847 -0.228904901,31.6023343 0.686714703,30.6867147 C1.12641074,
+                        30.2470187 1.72276655,30 2.34459065,30 L17.785564,30 C19.0804456,30 20.1301546,31.049709 20.1301546,32.3445907 L20.1301546,47.785564 C20.1301546,
+                        49.0804456 19.0804456,50.1301546 17.785564,50.1301546 C17.1637399,50.1301546 16.5673841,
+                        49.883136 16.127688,49.4434399 Z">
+                        </path>
+                        <path d="M45.127688,19.4434399 L29.6867147,4.0024666 C28.7710951,3.086847 28.7710951,
+                          1.60233431 29.6867147,0.686714703 C30.1264107,0.247018663 30.7227665,-8.17124146e-14 31.3445907,
+                          -8.17124146e-14 L46.785564,-7.7547585e-14 C48.0804456,-7.7547585e-14 49.1301546,1.04970899 49.1301546,
+                          2.34459065 L49.1301546,17.785564 C49.1301546,19.0804456 48.0804456,20.1301546 46.785564,
+                          20.1301546 C46.1637399,20.1301546 45.5673841,19.883136 45.127688,19.4434399 Z"
+                          transform="translate(39.065077, 10.065077) rotate(-180.000000) translate(-39.065077, -10.065077)">
+                      </path>
+                      </g>
+                    </svg>
+                  </div>
+            </button>
+          </div>
+          </div>
+          <div class="modal-body">
+            <p id="p1"><b>Welcome User!</b></p>
+            <p id="p2">Use this webapplication to plan citywide event and visualize traffic congestions: </p>
+            <p>Choose either the "SCENARIOS" or "INFORMATION" panel to start!</p>
+            <p> Scenarios:
+            <ul id="p2">
+            <li> Using slider select "Month" and "Weekday".</li>
+            <li>You can also choose special filter method from the dropdown menue.</li>
+            <li>Viola! the map is ready.</li>
+            <li>Use the "Hour" slider on bottom right to visualize the jams per hour.</li>
+            <li>Hover over the fishnet gridcells to get hourly information as filtered.</li></ul>
+          </p>
+            <p id="p2">Information:
+            <br><ul id="p2">
+            <li>Using pointer SELECT any gridcell.</li>
+            <li>Check the neighborhood of location you'd like to use for the your event. </li>
+            <li>Get average hourly jam lengths in the past.</li>
+            <li>And also average hourly jam lengths for any given day.</li>
+          </ul></p>
+
+            <p style="text-align:center; "><p>
+            <p id="p2"><em>This application uses uses jam length data from the congestion prediction algorithm.
+                Hit on either "About" or "Algorithm" to read more.</em></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark btn-secondary unicase space" data-dismiss="modal" id="close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <script src="js/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.0.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="js/underscore.js"></script>
-    <script src="js/jquery-2.2.0.js"></script>
+
     <!-- Javascript Code for navbar and sidepanels -->
     <script src="js/sidebar.js"></script>
     <script src="js/sidebartext.js"></script>
     <script src ="js/helperfunctions.js"></script>
     <!-- Javascript Code for charts -->
     <script src="js/charts.js"></script>
+
+    <script>
+
+
+    </script>
 
   </body>
 </html>

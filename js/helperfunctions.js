@@ -1,11 +1,4 @@
-// function getweekinfobyID (id) {
-//   var feat = fishWeek.features;
-//   var f_winfo = feat.filter(function(s) {
-//   return s.properties.FishnetID === id;
-//   });
-//
-//   document.getElementById('neigh').innerText =addr(dat);
-// }
+
 
 function gethrinfoID(id) {
     var feat = fish.features;
@@ -93,19 +86,21 @@ function populate(fhr) {
 
 }
 
-// first color is not -negative values.
-var colorRamp = ["#bcbcbc","#21BFD7", "#26A1E3","#2C84F0" ,"#6955F5", "#A626FB"];
 
-function colorit(feat) {
-  if (feature.properties.TotalTrip <= 1000) {
-        return colorRampCon[0];
-      } else if (feature.properties.TotalTrip <= 5000 &&feature.properties.TotalTrip > 1000 ) {
-        return colorRampCon[1];
-      } else if (feature.properties.TotalTrip <= 20000 && feature.properties.TotalTrip > 5000) {
-        return colorRampCon[2];
-      } else if (feature.properties.TotalTrip <= 100000 && feature.properties.TotalTrip > 20000 ) {
-        return colorRampCon[3];
-      }  else if (feature.properties.TotalTrip > 100000 ) {
-        return colorRampCon[4];
-      }
+function getWeekday(n){
+  if(n==1){
+    return "Monday";
+  } else if (n==2) {
+    return "Tuesday";
+  } else if(n==3) {
+    return "Wednesday";
+  }else if(n==4) {
+    return "Thursday";
+  } else if(n==5) {
+    return "Friday";
+  }else if(n==6) {
+    return "Saturday";
+  }else if(n==7) {
+    return "Sunday";
+  }
 };

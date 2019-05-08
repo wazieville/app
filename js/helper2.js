@@ -1,70 +1,4 @@
 
-$(window).on('load',function(){
-$('#exampleModal').modal('show');
-});
-
-// $('#close').click( function(){
-//    $('.navbar-primary').collapse('toggle');
-//  });
-
-  $('.btn-expand-collapse').click(function(e) {
-    $('.navbar-primary').toggleClass('collapsed');
-    $(".rotate").toggleClass("down");
-  });
-
-  $('.filter-manager').hide();
-  $('.interaction-manager').hide();
-  $('.chart-container').hide();
-  $('.hr-scrl').hide();
-
-  $('.Interact').click(function(e){
-    $('.filter-manager').hide();
-    $('.chart-container').hide();
-    $('.hr-scrl').hide();
-    $('.interaction-manager').show();
-  });
-
-  $('.Filter').click(function(e) {
-    $('.interaction-manager').hide();
-    $('.filter-manager').show();
-    $('.chart-container').show();
-    $('.hr-scrl').show();
-    map.setLayoutProperty('grids', 'visibility', 'visible');
-    map.setLayoutProperty('grid-highlighted', 'visibility', 'none');
-  });
-
-
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus');
-    $('#chart2').show();
-  });
-
-  var fishinfo =  function () {
-      $('.filter-manager').hide();
-      $('.chart-container').hide();
-      $('.hr-scrl').hide();
-      $('.interaction-manager').show();
-  };
-
-function colpa () {
-      $('.navbar-primary').toggleClass('collapsed');
-      $(".rotate").toggleClass("down");
-  };
-//
-  $(".filt-list li a").click(function(){
-  $(this).parents(".dropdown").find('.btn-secondary').html($(this).text() + ' <span class="item-dropdown"></span>');
-  $(this).parents(".dropdown").find('.btn').val($(this).html());
-  var red= $(this).parents(".dropdown").find('.btn').val($(this).html());
-  var txt = $(this).parents(".dropdown").find('.btn-secondary').html($(this).text());
-  console.log(red);
-});
-
-
-$('#demolist li a').on('click', function(){
-    $('#datebox').val($(this).html());
-});
-
-
 var mt;
 
 document.getElementById('mslider').addEventListener('input', function(e) {
@@ -88,7 +22,7 @@ function choosepoly(n){
 }
 
 // $('.mslider').on('change',function(){
-
+  chMonth(mt);
 //   console.log("clicked!");
 // });
 
