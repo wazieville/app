@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Mapbox GL -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+     <title>Wazieville</title>
+     <style>
+
+         canvas {
+                position: absolute;
+                top: 0;
+                }
+     </style>
+
+  </head>
+
+  <body>
+
+      <div class="header">
+        <h2 > Wazieville</h2>
+      </div>
+      <div class="container">
+      <div id='about-screen' style="display: block;">
+          <div id='about-close'></div>
+
+          <div id='about-screen-content'>
+            <div id='app-header'>
+
+              <div id="app-logo">
+
+                  <svg x="0px" y="0px" width="100.3px" height="100px" viewBox="0 0 446.3 455" style="enable-background:new 0 0 446.3 455;">
+                  <defs>
+                  </defs>
+                  <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="223.1488" y1="750.5471" x2="223.1488" y2="-278.2763">
+                    <stop  offset="0" style="stop-color:#00EFD1"/>
+                    <stop  offset="1" style="stop-color:#00ACEA"/>
+                  </linearGradient>
+                  <path class="st1" d="M388.4,125c-1.4-2.5-4.1-4-6.9-4H267.8c-2.9,0-5.5,1.5-6.9,4L204,223.5c-1.4,2.5-1.4,5.5,0,8l56.8,98.5
+                    c1.4,2.5,4.1,4,6.9,4h113.7c2.9,0,5.5-1.5,6.9-4l56.8-98.5c1.4-2.5,1.4-5.5,0-8L388.4,125z M376.8,318H272.4l-52.2-90.5l52.2-90.5
+                    h104.4l52.2,90.5L376.8,318z M295.7,156.6c-3.8-2.2-8.7-0.9-10.9,2.9l-40.5,70.1c-2.2,3.8-0.9,8.7,2.9,10.9s8.7,0.9,10.9-2.9
+                    l40.5-70.1C300.8,163.7,299.5,158.8,295.7,156.6C295.7,156.6,295.7,156.6,295.7,156.6z M57.9,209c1.4,2.5,4.1,4,6.9,4h113.7
+                    c2.9,0,5.5-1.5,6.9-4l56.8-98.5c1.4-2.5,1.4-5.5,0-8L185.4,4c-1.4-2.5-4.1-4-6.9-4H64.8c-2.9,0-5.5,1.5-6.9,4L1.1,102.5
+                    c-1.4,2.5-1.4,5.5,0,8L57.9,209z M69.4,16h104.4l52.2,90.5L173.9,197H69.4l-52.2-90.5L69.4,16z M185.4,246c-1.4-2.5-4.1-4-6.9-4
+                    H64.8c-2.9,0-5.5,1.5-6.9,4L1.1,344.5c-1.4,2.5-1.4,5.5,0,8L57.9,451c1.4,2.5,4.1,4,6.9,4h113.7c2.9,0,5.5-1.5,6.9-4l56.8-98.5
+                    c1.4-2.5,1.4-5.5,0-8L185.4,246z M173.9,439H69.4l-52.2-90.5L69.4,258h104.4l52.2,90.5L173.9,439z M92.7,277.9
+                    c-3.8-2.2-8.7-0.9-10.9,2.9l-40.5,70.1c-2.2,3.8-0.9,8.7,2.9,10.9s8.7,0.9,10.9-2.9l40.5-70.1C97.8,285,96.5,280.1,92.7,277.9
+                    C92.7,277.9,92.7,277.9,92.7,277.9z"/>
+                  </svg>
+              </div>
+              <div id="app-title">WAZIEVILLE</div>
+            </div>
+            <div id='about-title'>Congestion Prediction Modeling</div>
+            <div id='about-description' >Transportation congestion is an enormous threat to our economic prosperity and way of life.
+              This application is built to assist the interested user in interacting and visualizing the congestion predictions to plan a city wide event. For the proof of concept the application
+              is built for Jan 2018 only, which was made available to us under the Waze Connected Citizen Program partnership with the city of Louisville.
+
+              <br> <br> We would like to thank <a href="https://twitter.com/LouDataOfficer"> Michael Schnuerle </a>,
+               <a href="https://www.linkedin.com/in/mary-hampton-434250108/">Mary Hampton</a>,
+               <a href="https://twitter.com/Md_Harris">Mathew Harris</a>,
+               <a href="https://twitter.com/KenSteif"> Ken Steif</a>,
+               <a href="https://www.design.upenn.edu/pennpraxis/people/michael-fichman"> Michael Fishman</a> for their guidance;
+                and special thanks to <a href="https://developers.google.com/waze/"> WAZE </a> for providing us with this amazing database.
+            <div id='about-modes'>
+              <div id='about-modes-description'> There are three components to the application</div>
+              <div id='about-mode-explore'><div id='about-mode-explore-btn'>
+                <a href="https://wazieville.github.io/">
+                  Algorithm
+                </a></div></div>
+              <div id='about-mode-demo'><div id='about-mode-demo-btn'>
+                <a href="help.html">
+                  Demo
+                </a></div></div>
+              <div id='about-mode-calendar'><div id='about-mode-calendar-btn'>
+                <a href="results.html">
+                  Results
+                </a></div></div>
+            </div>
+            <div id='about-modes-description' style="text-align:center; margin-bottom:15px;"> Click start to explore the app. </div>
+            <div id='about-go'>
+              <div id='about-go-btn'>
+                <a id="index" href="index.html">Start </a>
+              </div>
+            </div>
+          </div>
+       </div>
+     </div>
+
+
+    <script src="js/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script src="js/leaflet-svg-shape-markers.js"></script> -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="js/underscore.js"></script>
+    <!-- <script src="js/jquery-2.2.0.js"></script> -->
+    <!-- <script src="js/sidebartext.js"></script> -->
+
+
+    <!-- Javascript Code -->
+
+
+  </body>
+</html>
